@@ -9,7 +9,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "deploy": "nuxt generate && surge dist nira.surge.sh"
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.35",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.3.0",
     "eslint": "^9.24.0",
+    "surge": "^0.24.6",
     "typescript": "^5.8.3"
   }
 }
