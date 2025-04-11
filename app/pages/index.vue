@@ -1,8 +1,29 @@
+<script setup>
+const showOverlay = ref(false)
+
+const playFartAndShowCat = () => {
+  const audio = new Audio('/farto.mp3')
+  audio.play()
+  showOverlay.value = true
+
+  setTimeout(() => {
+    showOverlay.value = false
+  }, 1000)
+}
+</script>
+
 <template>
   <div class="container mx-auto max-w-2xl mt-24 mb-24 px-4">
     <h1 class="text-4xl font-bold text-center mb-8">MLEM MLEM 😺✨</h1>
-
     <p class="text-center text-gray-300 mb-8">made by Nira with Cursor AI and Nuxt UI</p>
+
+
+    <div>
+      Pipik pipik
+      <UButton size="xl" class="mb-8 text-xl font-bold" @click="playFartAndShowCat">
+        CLICK ME IF YOU NOT GEJ
+      </UButton>
+    </div>
 
     <div class="space-y-6">
       <p class="text-lg">
@@ -40,4 +61,24 @@
       </div>
     </div>
   </div>
+
+  <Transition name="fade">
+    <div v-if="showOverlay" class="fixed inset-0 bg-black z-50">
+      <img
+        src="https://preview.redd.it/share-your-favourite-car-images-v0-ri5vim4xirfd1.jpeg?auto=webp&s=38b926a6d7099bb8bf348952536eaf1478c5b13c"
+        alt="Cat with tongue out meme" class="w-full h-full object-cover">
+    </div>
+  </Transition>
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
